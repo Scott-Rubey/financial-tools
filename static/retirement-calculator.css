@@ -1,0 +1,54 @@
+body{
+    padding: 15vh;
+    text-align: center;
+    background-color: #EEEEEE;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    display: inline-block;
+}
+
+p{
+    display: table-row;
+}
+
+label{
+    display: table-cell;
+    text-align: left;
+}
+
+#formBody{
+    background-color: white;
+    border-radius: 5px;
+}
+
+input.formBox{
+    display: table-cell;
+    text-align: center;
+    margin-left: 25px;
+}
+
+.btn{
+    border-color: black;
+}
+
+.btn-secondary{
+    margin-left: 5px;
+}
+
+#pageBreak{
+    width: 100%;
+    height: 20px;
+}
+
+#futureBalText{
+    font-size: x-large;
+    background-color: white;
+    border-radius: 5px;
+}
