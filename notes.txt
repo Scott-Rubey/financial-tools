@@ -1,0 +1,5 @@
+SSH into the EC2 instance and perform the following commands:
+
+- sudo yum update -y
+- sudo yum install docker.io
+- sudo service docker start
