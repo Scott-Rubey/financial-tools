@@ -16,7 +16,7 @@ function calcBalance(event){
 
     //This only represents compound interest on principal at this point
     let futureBalance = getFutureBalance(curBal, rateOfRtn, numCompounds, retAge, curAge)
-    let futureBalText = getFutureBalText(curAge, futureBalance);
+    let futureBalText = getFutureBalText(retAge, futureBalance);
 
     addFutureBalanceToDOM(futureBalText);
 }
@@ -25,9 +25,9 @@ function getFutureBalance(curBal, rateOfRtn, numCompounds, retAge, curAge) {
     return curBal * (1 + rateOfRtn / numCompounds) ^ (numCompounds * (retAge - curAge));
 }
 
-function getFutureBalText(curAge, futureBalance) {
+function getFutureBalText(retAge, futureBalance) {
     return "Your total 401k balance at age "
-        .concat(curAge).concat(" will be: $").concat(futureBalance.toLocaleString());
+        .concat(retAge).concat(" will be: $").concat(futureBalance.toLocaleString());
 }
 
 function addFutureBalanceToDOM(futureBalText) {
