@@ -3,3 +3,5 @@ SSH into the EC2 instance and perform the following commands:
 - sudo yum update -y
 - sudo yum install docker.io
 - sudo service docker start
+- sudo docker pull scrubey/financial-tools
+- sudo docker run -p 80:80 scrubey/financial-tools
