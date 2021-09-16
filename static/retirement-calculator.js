@@ -15,19 +15,42 @@ function calcBalance(event){
     let numCompounds = document.getElementById("compounds").value;
 
     //This only represents compound interest on principal at this point
-    let futureBalance = getFutureBalance(curBal, rateOfRtn, numCompounds, retAge, curAge)
+    let futureBalance = getFutureValue(curBal, rateOfRtn, numCompounds, retAge, curAge, contribution)
     let futureBalText = getFutureBalText(retAge, futureBalance);
 
     addFutureBalanceToDOM(futureBalText);
 }
 
-function getFutureBalance(curBal, rateOfRtn, numCompounds, retAge, curAge) {
-    return curBal * (1 + rateOfRtn / numCompounds) ^ (numCompounds * (retAge - curAge));
+function getFutureValue(curBal, rateOfRtn, numCompounds, retAge, curAge, contribution) {
+    let presValPlusInterest = getPresValPlusInt(curBal, rateOfRtn, numCompounds, retAge, curAge);
+    let periodicPmtsPlusInterest = getPerPmtsPlusInt(contribution, rateOfRtn, retAge, curAge);
+
+    return presValPlusInterest + periodicPmtsPlusInterest;
 }
 
 function getFutureBalText(retAge, futureBalance) {
     return "Your total 401k balance at age "
         .concat(retAge).concat(" will be: $").concat(futureBalance.toLocaleString());
+}
+
+function getPresValPlusInt(curBal, rateOfRtn, numCompounds, retAge, curAge){
+    let intRate = rateOfRtn / 100;
+
+    return curBal * (Math.pow((1 + intRate / numCompounds), (numCompounds * getNumYrs(retAge, curAge))));
+}
+
+function getPerPmtsPlusInt(contribution, rateOfReturn, retAge, curAge){
+    let intRate = rateOfReturn / 100;
+
+    console.log(contribution);
+    console.log((Math.pow((1 + intRate / 12), (getNumYrs(retAge, curAge) * 12)) - 1));
+    console.log(intRate / 12);
+
+    return contribution * ((Math.pow((1 + intRate / 12), (getNumYrs(retAge, curAge) * 12)) - 1) / (intRate / 12));
+}
+
+function getNumYrs(retAge, curAge){
+    return retAge - curAge;
 }
 
 function addFutureBalanceToDOM(futureBalText) {
