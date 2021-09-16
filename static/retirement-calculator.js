@@ -41,7 +41,7 @@ function getFutureValue(curBal, rateOfRtn, numCompounds, retAge, curAge, contrib
 
 function getFutureBalText(retAge, futureBalance) {
     return "Your total 401k balance at age "
-        .concat(retAge).concat(" will be: $").concat(futureBalance.toLocaleString());
+        .concat(retAge).concat(" will be: $").concat(futureBalance.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}));
 }
 
 function getPresValPlusInt(curBal, rateOfRtn, numCompounds, retAge, curAge){
