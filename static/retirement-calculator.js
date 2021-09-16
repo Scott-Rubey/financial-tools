@@ -3,6 +3,8 @@ window.onload = function() {
     form.addEventListener('submit', calcBalance);
 }
 
+let formSubmitted = false;
+
 function calcBalance(event){
     event.preventDefault();
 
@@ -18,7 +20,10 @@ function calcBalance(event){
     let futureBalance = getFutureValue(curBal, rateOfRtn, numCompounds, retAge, curAge, contribution)
     let futureBalText = getFutureBalText(retAge, futureBalance);
 
-    addFutureBalanceToDOM(futureBalText);
+    if(!formSubmitted) {
+        addFutureBalanceToDOM(futureBalText);
+        formSubmitted = true;
+    }
 }
 
 //According to formula for future value of periodic payments when payments are due at end of month
