@@ -1,6 +1,7 @@
 window.onload = function() {
     const form = document.querySelector('form');
     form.addEventListener('submit', calcBalance);
+    form.addEventListener('reset', resetForm)
 }
 
 let formSubmitted = false;
