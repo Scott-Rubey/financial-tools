@@ -17,13 +17,16 @@ function calcBalance(event){
     let rateOfRtn = document.getElementById("rateOfReturn").value;
     let numCompounds = document.getElementById("compounds").value;
 
-    //This only represents compound interest on principal at this point
     let futureBalance = getFutureValue(curBal, rateOfRtn, numCompounds, retAge, curAge, contribution)
     let futureBalText = getFutureBalText(retAge, futureBalance);
 
     if(!formSubmitted) {
         addFutureBalanceToDOM(futureBalText);
         formSubmitted = true;
+    }
+    else{
+        removeCurrentFutBalDiv();
+        addFutureBalanceToDOM(futureBalText);
     }
 }
 
@@ -69,6 +72,11 @@ function addFutureBalanceToDOM(futureBalText) {
     futureBalDiv.appendChild(textNode);
 
     document.querySelector('body').appendChild(futureBalDiv);
+}
+
+function removeCurrentFutBalDiv(){
+    let curFutBalDiv = document.getElementById('futureBalText');
+    curFutBalDiv.remove();
 }
 
 //TODO: add employer match to future-value calculation
