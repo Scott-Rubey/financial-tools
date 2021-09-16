@@ -21,6 +21,8 @@ function calcBalance(event){
     addFutureBalanceToDOM(futureBalText);
 }
 
+//According to formula for future value of periodic payments when payments are due at end of month
+//https://keisan.casio.com/exec/system/1234231998
 function getFutureValue(curBal, rateOfRtn, numCompounds, retAge, curAge, contribution) {
     let presValPlusInterest = getPresValPlusInt(curBal, rateOfRtn, numCompounds, retAge, curAge);
     let periodicPmtsPlusInterest = getPerPmtsPlusInt(contribution, rateOfRtn, retAge, curAge);
@@ -62,3 +64,5 @@ function addFutureBalanceToDOM(futureBalText) {
 
     document.querySelector('body').appendChild(futureBalDiv);
 }
+
+//TODO: add employer match to future-value calculation
