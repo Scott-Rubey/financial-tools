@@ -10,7 +10,7 @@ function calcBalance(event){
     let retAge = document.getElementById("retAge").value;
     let curBal = document.getElementById("balance").value;
     let contribution = document.getElementById("401kCont").value;
-    let empMatch = document.getElementById("empMatch").value;
+    //let empMatch = document.getElementById("empMatch").value;
     let rateOfRtn = document.getElementById("rateOfReturn").value;
     let numCompounds = document.getElementById("compounds").value;
 

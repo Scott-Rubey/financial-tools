@@ -4,13 +4,14 @@ body{
     background-color: #EEEEEE;
 }
 
-h1{
+h1, footer{
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 form{
+    /*padding: 15vh; */
     display: inline-block;
 }
 
@@ -51,4 +52,11 @@ input.formBox{
     font-size: x-large;
     background-color: white;
     border-radius: 5px;
+}
+
+footer{
+    position: fixed;
+    bottom: 0px;
+    width: 83%;
+    font-size: small;
 }
